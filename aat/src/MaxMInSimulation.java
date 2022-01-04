@@ -30,7 +30,7 @@ public class MaxMInSimulation {
     private static int num_vm = 10, num_cloudlets = 20;
     private static double FinalTime;
     private static List<Cloudlet> cloudletList;
-    // private static List<Cloudlet> sortedcloudletList;
+
     private static List<Cloudlet> sortList = new ArrayList<Cloudlet>();
     private static double resTime[] = new double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     private static List<Vm> vmList;
@@ -40,7 +40,7 @@ public class MaxMInSimulation {
     private static List<Vm> createVM(int userId, int vms, int idShift) {
         // Creates a container to store VMs. This list is passed to the broker later
         LinkedList<Vm> list = new LinkedList<Vm>();
-        // Random rand=new Random();
+
         // VM Parameters
         long size = 10000; // image size (MB)
         int ram = 512; // vm memory (MB)
@@ -272,10 +272,10 @@ public class MaxMInSimulation {
                 System.out.printf(indent2 + "SUCCESS");
                 System.out.printf(indent + indent + indent + cloudlet.getResourceId() + indent + indent + indent
                         + indent + "   " + cloudlet.getVmId() + indent + indent + indent + "  " + indent + indent
-                        + (cloudlet.getFinishTime() - cloudlet.getSubmissionTime()));
+                        + (cloudlet.getFinishTime() - cloudlet.getSubmissionTime()) + indent + indent);
                 System.out.printf("%-22.5f", cloudlet.getActualCPUTime());
-                System.out.printf("%-22.5f", cloudlet.getExecStartTime());
                 System.out.printf("%-22.5f", cloudlet.getFinishTime());
+                System.out.printf("%-22.5f", cloudlet.getExecStartTime());
                 System.out.println("");
 
                 resTime[cloudlet.getVmId()] += cloudlet.getActualCPUTime();
