@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.CloudletSchedulerSpaceShared;
+import org.cloudbus.cloudsim.CloudletSchedulerTimeShared;
 import org.cloudbus.cloudsim.Datacenter;
 import org.cloudbus.cloudsim.DatacenterBroker;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
@@ -49,7 +50,7 @@ public class RoundRobinTaskSceduling {
         Vm[] vm = new Vm[vms];
 
         for (int i = 0; i < vms; i++) {
-            vm[i] = new Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerSpaceShared());
+            vm[i] = new Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared());
             // for creating a VM with a space shared scheduling policy for cloudlets:
             // vm[i] = Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new
             // CloudletSchedulerSpaceShared());
